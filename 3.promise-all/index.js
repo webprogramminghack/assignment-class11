@@ -7,10 +7,14 @@ let urls = [
 // Please use Promise.all() to print user's login and id
 // Start coding here
 Promise.all(
-  urls.map((i) =>
-    fetch(i)
-      .then((res) => res.json())
-      .then((i) => console.log(`User: ${i.login}, ID: ${i.id}`))
+  urls.map(
+    (i) =>
+      new Promise((resolve, reject) => {
+        fetch(i)
+          .then((res) => res.json())
+          .then((i) => resolve(console.log(`User: ${i.login}, ID: ${i.id}`)))
+          .catch((err) => reject(err));
+      })
   )
 );
 
