@@ -6,6 +6,10 @@ let urls = [
 
 // Please use Promise.all() to print user's login and id
 // Start coding here
+Promise.all(urls.map(url => fetch(url).then(res => res.json())))
+.then(data => data.forEach(item => {
+  console.log(`User: ${item.login}, ID: ${item.id}`);
+}));
 
 // ------ don't change the code below -------
 // Expected output
