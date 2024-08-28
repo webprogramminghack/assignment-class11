@@ -11,6 +11,7 @@ class InvalidTypeError extends Error {
   constructor(message, options) {
     super(`Property "${message}" should be of type "${options}"`);
     this.name = 'InvalidTypeError';
+    this.options = options;
   }
 }
 
