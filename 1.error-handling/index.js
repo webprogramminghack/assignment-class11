@@ -37,7 +37,16 @@ function parseAndValidateJSON(jsonString) {
     return parsedData;
   } catch (err) {
     // handle the error here
-    console.log(`${err.name}: ${err.message}`);
+    const { name, message } = err;
+    if (err instanceof MissingPropertyError) {
+      console.log(`${name}: ${message}`);
+    } else if (err instanceof InvalidTypeError) {
+      console.log(`${name}: ${message}`);
+    } else if (err instanceof SyntaxError) {
+      console.log(`${name}: ${message}`);
+    } else {
+      console.log(`${name}: ${message}`);
+    }
   }
 }
 
