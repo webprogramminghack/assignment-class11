@@ -35,9 +35,9 @@ function parseAndValidateJSON(jsonString) {
     }
 
     return parsedData;
-  } catch (error) {
+  } catch (err) {
     // handle the error here
-    console.log(error.message);
+    console.log(`${err.name}: ${err.message}`);
   }
 }
 
