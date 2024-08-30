@@ -3,6 +3,21 @@
 function fetchData(url) {
   // you can use fetch to get a Promise from URL
   // start coding here
+
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Extract and log user information based on the expected format
+      console.log(`${data.name} lives in ${data.location}`);
+    })
+    .catch((error) => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
 }
 
 // don't change the code below
