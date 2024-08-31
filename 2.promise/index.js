@@ -1,8 +1,24 @@
 'use strict';
 
-function fetchData(url) {
+async function fetchData(url) {
   // you can use fetch to get a Promise from URL
   // start coding here
+
+  try {
+    await fetch(url)
+      .then(result => result.json())
+      .then(data => {
+        let name      = data.name;
+        let location  = data.location;
+        let message   = `${data.name} lives in ${data.location}`;
+  
+        // result
+        console.log(message);
+      })
+    } catch(err) {
+      console.log(`Error: Not Found`);
+  }
+    
 }
 
 // don't change the code below
