@@ -1,8 +1,20 @@
 'use strict';
 
 function fetchData(url) {
-  // you can use fetch to get a Promise from URL
-  // start coding here
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Not Found');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      let location = data.location || 'lokasi tidak diketahui';
+      console.log(`${data.name} tinggal di ${location}`);
+    })
+    .catch((error) => {
+      console.error('Error:', error.message);
+    });
 }
 
 // don't change the code below

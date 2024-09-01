@@ -47,3 +47,53 @@ let urls = [
 // User: remy, ID: 13700
 // User: jeresig, ID: 1615
 ```
+
+# Menjanjikan Semua dalam JavaScript
+
+## Tujuan
+
+Tujuan dari tugas ini adalah mempelajari cara menangani beberapa operasi asinkron menggunakan janji dan rangkaian janji dalam JavaScript. Anda akan menggunakan `Promise.all()` untuk mengambil data dari beberapa titik akhir API dan memproses responsnya.
+
+## Petunjuk
+
+### Langkah 1: Memahami Janji dan Rantai
+
+Sebelum memulai tugas, pastikan Anda memahami konsep berikut:
+
+- **Janji**: Objek yang mewakili penyelesaian atau kegagalan operasi asinkron.
+- **Promise Chaining**: Proses merangkai beberapa metode `.then()` untuk menangani operasi asinkron secara berurutan.
+- **Promise.all()**: Metode yang mengambil serangkaian janji dan mengembalikan satu janji yang diselesaikan ketika semua janji telah diselesaikan.
+
+### Langkah 2: Ambil Data dari Beberapa API
+
+Anda akan diberikan serangkaian URL yang menunjuk ke titik akhir API yang berbeda. Tugas Anda adalah:
+
+1. **Ambil** data dari setiap URL menggunakan `ambil`.
+2. **Rantai** janji menggunakan `Promise.all()` untuk memastikan bahwa semua data diambil dan diproses bersama.
+3. **Menangani** respons JSON dari setiap pengambilan.
+4. **Menampilkan** data yang relevan dari setiap respons.
+
+### Langkah 3: Terapkan Rantai Janji
+
+Anda akan menggunakan `fetch` untuk mengambil data dari beberapa URL. Gunakan `Promise.all()` untuk menunggu hingga semua operasi pengambilan selesai, lalu proses datanya.
+
+### Kode Awal
+
+Di bawah ini adalah kode awal yang akan Anda gunakan:
+
+```javascript
+biarkan url = [
+  'https://api.github.com/users/iliakan',
+  'https://api.github.com/users/remy',
+  'https://api.github.com/users/jeresig',
+];
+
+// Silakan gunakan Promise.all() untuk mencetak login dan id pengguna
+// Mulai coding di sini
+
+// ------ jangan ubah kode di bawah ini -------
+// Hasil yang diharapkan
+// Pengguna: iliakan, ID: 349336
+// Pengguna: remy, ID: 13700
+// Pengguna: jeresig, ID: 1615
+```
