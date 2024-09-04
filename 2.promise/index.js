@@ -13,12 +13,9 @@ function fetchData(url) {
     .then(data => {
       let name = data.name;
       let location = data.location || 'Not Found'; 
-      
       console.log(`${name} lives in ${location}`);
     })
-    .catch(error => {
-      console.error(error.message);
-    });
+    .catch(error => console.log('Not Found'));
 }
 
 // don't change the code below
