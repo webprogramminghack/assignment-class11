@@ -3,6 +3,10 @@
 function fetchData(url) {
   // you can use fetch to get a Promise from URL
   // start coding here
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => console.log(`${data.name} lives in ${data.location}`))
+    .catch((err) => console.log('Error: Not Found'));
 }
 
 // don't change the code below
