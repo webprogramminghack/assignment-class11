@@ -12,8 +12,8 @@ function fetchData(url) {
       let location = data.location || 'lokasi tidak diketahui';
       console.log(`${data.name} tinggal di ${location}`);
     })
-    .catch((error) => {
-      console.error('Error:', error.message);
+    .catch(() => {
+      console.error('Not Found');
     });
 }
 
