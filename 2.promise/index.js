@@ -10,7 +10,7 @@ function fetchData(url) {
     })
     .then((data) => {
       let location = data.location || 'lokasi tidak diketahui';
-      console.log(`${data.name} tinggal di ${location}`);
+      console.log(`${data.name} lives in ${location}`);
     })
     .catch(() => {
       console.error('Not Found');
