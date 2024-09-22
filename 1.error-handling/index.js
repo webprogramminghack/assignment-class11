@@ -1,19 +1,47 @@
 class MissingPropertyError extends Error {
   // please update the class
+  constructor(message) {
+    super(message);  
+    this.name = "MissingPropertyError";  
+  }
 }
 
 class InvalidTypeError extends Error {
   // please update the class
+  constructor(message) {
+    super(message);  
+    this.name = "InvalidTypeError";  
+  }
 }
 
 function parseAndValidateJSON(jsonString) {
   try {
     let parsedData = JSON.parse(jsonString);
     // use if statements and throw the errors
-
+    if (!parsedData.name) {
+      throw new MissingPropertyError('Property "name" is missing');
+    }
+    if (!parsedData.age) {
+      throw new MissingPropertyError('Property "age" is missing');
+    }
+    if (typeof parsedData.name !== 'string') {
+      throw new InvalidTypeError('Property "name" should be of type "string"');
+    }
+    if (typeof parsedData.age !== 'number') {
+      throw new InvalidTypeError('Property "age" should be of type "number"');
+    }
     return parsedData;
   } catch (error) {
     // handle the error here
+    if (error instanceof MissingPropertyError) {
+      console.error(`${error.name}: ${error.message}`);
+    } else if (error instanceof InvalidTypeError) {
+      console.error(`${error.name}: ${error.message}`);
+    } else if (error instanceof SyntaxError) {
+      console.error(`SyntaxError: ${error.message}`);
+    } else {
+      console.error(`UnknownError: ${error.message}`);
+    }
   }
 }
 
