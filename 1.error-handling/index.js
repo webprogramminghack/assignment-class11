@@ -19,17 +19,17 @@ function parseAndValidateJSON(jsonString) {
   try {
     let parsedData = JSON.parse(jsonString);
     // use if statements and throw the errors
-    if (!parsedData.name) {
+    if (!parsedData.hasOwnProperty('name')) {
       throw new MissingPropertyError("name");
     }
-    if (!parsedData.age) {
+    if (!parsedData.hasOwnProperty('age')) {
       throw new MissingPropertyError("age");
     }
-    if (parsedData.age !== Number(parsedData.age)) {
-      throw new InvalidTypeError(`age`, `number`);
+    if (typeof parsedData.age !== 'number') {
+      throw new InvalidTypeError("age", "number");
     }
-    if (parsedData.name !== String(parsedData.name)) {
-      throw new InvalidTypeError(`name`, `string`);
+    if (typeof parsedData.name !== 'string') {
+      throw new InvalidTypeError("name", "string");
     }
 
     return parsedData;
